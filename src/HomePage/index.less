@@ -1,0 +1,52 @@
+.home-page-div {
+  height: 100%;
+  background: -webkit-radial-gradient(center, circle cover, rgb(229, 167, 136) 0%, rgb(82, 49, 86) 100%);
+  @logoHeight: 2rem; /*logo高度*/
+  @btnDivHeight: 2rem;  /*底部的高度*/
+  @directionHeight: calc(100% - 4rem); /*中间内容区的高度*/
+
+  .logo {
+    display: block;
+    height: @logoHeight;
+    border-bottom: 1px red solid;
+  }
+  .direction-content {
+    height: @directionHeight;
+    padding: .3rem 0 .4rem 0;
+    box-sizing: border-box;
+    border: 1px red solid;
+    position: relative;
+  }
+  .bottom-operate-div {
+    position: relative;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: @btnDivHeight;
+    border-top: 1px red solid;
+    .btn-sign-up {
+      height: 1rem;
+      line-height: 1rem;
+      text-align: center;
+      color: white;
+      width: 3.5rem;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border: 1px white solid;
+      border-radius: .2rem;
+      font-size: .5rem;
+    }
+    .circle-operate {
+      width: 1.2rem;
+      height: 1.2rem;
+      border: 1px rgb(219, 219, 219) solid;
+      border-radius: 50%;
+      position: absolute;
+      top: -.1rem;
+      right: .3rem;
+      background-color: rgba(240, 240, 240, 0.2);
+    }
+  }
+}
