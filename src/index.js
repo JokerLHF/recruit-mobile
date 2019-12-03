@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.less';
+import 'antd-mobile/dist/antd-mobile.css';
 import HomePage from './HomePage';
+import './setFontSize';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<HomePage />, document.getElementById('root'));
