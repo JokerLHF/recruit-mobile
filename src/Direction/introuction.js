@@ -23,7 +23,7 @@ export let introcution = [
       '前端开导开导开导开导开导开导开导开导看呼呼呼呼呼',
       '前端开导开导开导开导开导开导开导开导看呼呼呼呼呼',
     ],
-    imgFile: require('../static/front.jpg')
+    imgFile: require('../static/P&A.png')
   },
   {
     name: '后台',
@@ -36,7 +36,7 @@ export let introcution = [
       '前端开导开导开导开导开导开导开导开导看呼呼呼呼呼',
       '前端开导开导开导开导开导开导开导开导看呼呼呼呼呼',
     ],
-    imgFile: require('../static/front.jpg')
+    imgFile: require('../static/java.jpg')
   },
   {
     name: '安卓',
@@ -49,6 +49,6 @@ export let introcution = [
       '前端开导开导开导开导开导开导开导开导看呼呼呼呼呼',
       '前端开导开导开导开导开导开导开导开导看呼呼呼呼呼'
     ],
-    imgFile: require('../static/front.jpg')
+    imgFile: require('../static/anroid.png')
   },
 ]

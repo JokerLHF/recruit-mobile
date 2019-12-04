@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Modal } from 'antd-mobile';
 import FormSignItem from './ModalItem';
+import axios from 'axios';
 import './form.less';
 
-
+axios.defaults.withCredentials = true;
 
 function closest (el, selector) {
   const matchesSelector = el.matches || el.webkitMatchesSelector || el.mozMatchesSelector || el.msMatchesSelector;
@@ -40,11 +41,39 @@ class SignForm extends Component {
     let val = this.onSure();
     console.log(val)
     if (val) { // 如果有数据的话
-      alert('发送表单数据');
       localStorage.removeItem('P&A-form');
       // this.props.changeFromState();
+      this.sendAjax(val);
     }
   }
+
+  sendAjax = (val) => {
+    axios({
+      method: "POST",
+      url: 'http://pandastudio.club/PandaRecruit/',
+      data: this.toFormData(val),
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+    }).then(res => {
+      console.log(res);
+    })
+  }
+
+
+  toFormData = (data) => {
+    var formData = new FormData();
+    Object.keys(data).forEach(key => {
+      let dataKey = data[key];
+      if (Array.isArray(dataKey)) { // 发送数组
+        for (let i = 0; i < dataKey.length; i++) {
+          formData.append(`${key}`, dataKey[i]);
+        }
+      } else {
+        formData.append(key, dataKey);
+      }
+    })
+    return formData;
+  }
+
   thinkLittle = () => {
     let val = this.thinkMore();
     localStorage.setItem('P&A-form', JSON.stringify(val));

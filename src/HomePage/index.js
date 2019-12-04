@@ -3,7 +3,7 @@ import Direction from '../Direction';
 import ButtomCom from '../Buttom';
 import SignForm from '../Form/index';
 import './index.less';
-import logo from '../static/logo.png';
+
 
 
 class HomePage extends Component {
@@ -18,7 +18,8 @@ class HomePage extends Component {
   render () {
     return (
       <div className="home-page-div">
-        <img src={logo} className="logo" alt="" />
+        {/* <img src={logo} className="logo" alt="" /> */}
+        <div className="logo">P&A</div>
         <div className="direction-content">
           <Direction />
         </div>
