@@ -11,15 +11,11 @@ import { createForm } from 'rc-form';
 const gradeList = [
   {
     label: '大一',
-    value: 1,
+    value: '大一',
   },
   {
     label: '大二',
-    value: 2,
-  },
-  {
-    label: '大三',
-    value: 3,
+    value: '大二',
   },
 ];
 
@@ -122,7 +118,7 @@ class FormSignItem extends Component {
 
   render () {
     const { getFieldProps } = this.props.form;
-    const { name = '', stuId = '', tel = '', majorAndClass = '', grade = [1], introduction = '', wechat = '', dormitory = '', academy = '计算机学院' } = this.returnLocalStorage();
+    const { stuName = '', stuId = '', tel = '', majorAndClass = '', grade = ['大一'], introduction = '', wechat = '', dormitory = '', academy = '计算机学院' } = this.returnLocalStorage();
     let departmentId = this.state.direction;
     let gender = this.state.gender;
     return (
@@ -130,8 +126,8 @@ class FormSignItem extends Component {
 
         <List>
           <InputItem
-            {...getFieldProps('name', {
-              initialValue: name,
+            {...getFieldProps('stuName', {
+              initialValue: stuName,
               rules: [{
                 'required': true,
               }]

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Modal } from 'antd-mobile';
+import { Modal, Toast } from 'antd-mobile';
 import FormSignItem from './ModalItem';
 import axios from 'axios';
 import './form.less';
@@ -39,10 +39,7 @@ class SignForm extends Component {
 
   sumbit = () => {
     let val = this.onSure();
-    console.log(val)
     if (val) { // 如果有数据的话
-      localStorage.removeItem('P&A-form');
-      // this.props.changeFromState();
       this.sendAjax(val);
     }
   }
@@ -50,11 +47,17 @@ class SignForm extends Component {
   sendAjax = (val) => {
     axios({
       method: "POST",
-      url: 'http://pandastudio.club/PandaRecruit/',
+      url: 'http://106.15.120.23:80/user/application/add',
       data: this.toFormData(val),
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
     }).then(res => {
-      console.log(res);
+      if (res.data.success) {
+        Toast.info('报名成功', 1);
+        localStorage.removeItem('P&A-form');
+        this.props.changeFromState();
+      } else {
+        Toast.info('操作失败, 请重新报名', 1);
+      }
     })
   }
 
